@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+h1 {
+    color: rgb(216, 213, 219);
+    margin-bottom: 10px; /* Reduced from 40px/20px to bring the message panel close to the heading */
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    background: rgb(45, 49, 66);
+    /* --- Flexbox Setup for Ordering --- */
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; /* Centers the content stack horizontally */
+    padding-top: 50px;
+    /* --- End Flexbox Setup --- */
+    font-family: Arial, sans-serif;
+    color: #111;
+}
+
+/* * The message container is correctly positioned below the H1 using Flexbox 'order'.
+* It takes order: 2, placing it after <main> which contains H1 (order: 1).
+*/
+.msg-container {
+    order: 2; /* Visual Order: Second element */
+    
+    height: auto; 
+    margin-bottom: 20px; /* Space between message panel and the game board */
+    margin-top: 10px; /* Space below the H1 */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 15px; 
+    
+    /* Panel styling */
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #282c35; 
+    border: 2px solid #61dafb;
+}
+
+#msg {
+    color: rgb(178, 232, 125);
+    font-size: 5vmin;
+}
+
+.hide {
+    display: none;
+}
+
+/* Main element contains H1 and Container/Game Board */
+main {
+    order: 1; /* Visual Order: First element, ensuring H1 comes first */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+
+/* center & size the outer container */
+.container {
+    width: 70vmin;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* this is the colored panel behind the boxes */
+.game {
+    /* *** CRITICAL FIX: Removed large margin-top *** */
+    margin-top: 0; /* Ensures the game board sits immediately below the message container */
+    width: 60vmin;
+    background-color: rgb(173, 172, 181);
+    padding: 1.5vmin; 
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5vmin;
+    margin: 0 auto; 
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    background: rgb(176, 215, 255);
+    font-size: 15vmin;
+    color: rgb(115, 16, 16);
+    cursor: pointer;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+#reset-btn {
+    margin-top: 20px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer; 
+}
+
+#new {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer; 
+}
